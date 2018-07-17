@@ -1,4 +1,4 @@
-/* app.js
+/** app.js
  *
  * This is our RSS feed reader application. It uses the Google
  * Feed Reader API to grab RSS feeds as JSON object we can make
