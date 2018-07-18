@@ -34,7 +34,6 @@ $(function () {
         describe('For each RSS Feed, it', function () {
             allFeeds.forEach(function (feed) {
                 it('has a URL that is not empty', function () {
-
                     expect(feed.url).toBeDefined();
                     expect(feed.url.length).not.toBe(0);
                 })
@@ -57,8 +56,8 @@ $(function () {
     });
 
 
-    /* TODO: Write a new test suite named "The menu" */
     let menu = $(".slide-menu")[0], hamburgerBtn = $(".menu-icon-link")[0];
+    /* TODO: Write a new test suite named "The menu" */
     describe('The menu', function () {
 
         /* TODO: Write a test that ensures the menu element is
@@ -67,31 +66,30 @@ $(function () {
          * hiding/showing of the menu element.
          */
 
-        afterEach(function () {
-            hamburgerBtn.click();
-        });
-
         it('is hidden by default', function () {
             expect(checkVisible(menu)).toBeFalsy();
-            // After this, the menu is opened and ready for the next test.
         });
 
-        /* TODO: Write a test that ensures the menu changes
-         * visibility when the menu icon is clicked. This test
-         * should have two expectations: does the menu display when
-         * clicked and does it hide when clicked again.
-         */
-        it('displays when the menu icon is first clicked', function () {
-            // hamburgerBtn.click(); // => this didn't work because the menu wouldn't be opened fast enough. So I use afterEach.
-            expect($(document.body).hasClass('menu-hidden')).toBe(false);
-            // After this, the menu is closed and ready for the next test.
-        });
+        describe('The menu', function () {
+            beforeEach(function (done) {
+                hamburgerBtn.click();
+                // Wait for the toggle animation to be done
+                setTimeout(function () {
+                    done();
+                }, 400)
+            });
+            /* TODO: Write a test that ensures the menu changes
+             * visibility when the menu icon is clicked. This test
+             * should have two expectations: does the menu display when
+             * clicked and does it hide when clicked again.
+             */
+            it('displays when the menu icon is first clicked', function () {
+                expect(checkVisible(menu)).toBeTruthy();
+            });
 
-        it('hides when the menu icon is clicked one more time', function () {
-            // hamburgerBtn.click(); // => this didn't work because the menu wouldn't be opened fast enough. So I use afterEach.
-            expect($(document.body).hasClass('menu-hidden')).toBe(true);
-            // After this, the menu is opened, so we need to close it.
-            hamburgerBtn.click();
+            it('hides when the menu icon is clicked one more time', function () {
+                expect(checkVisible(menu)).toBeFalsy();
+            });
         });
     });
 
