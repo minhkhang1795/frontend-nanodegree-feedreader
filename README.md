@@ -21,7 +21,7 @@ You will learn how to use Jasmine to write a number of tests against a pre-exist
 * Good tests give you the ability to quickly analyze whether new code breaks an existing feature within your codebase, without having to manually test all of the functionality.
 
 
-# How will I complete this project?
+## How will I complete this project?
 
 Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/projects/3442558598/rubric)
 
@@ -46,3 +46,10 @@ Review the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/pr
 19. Implement error handling for undefined variables and out-of-bound array access.
 20. When complete - all of your tests should pass. 
 21. Write a README file detailing all steps required to successfully run the application. If you have added additional tests (for Udacious Test Coverage),  provide documentation for what these future features are and what the tests are checking for.
+
+
+## How to run the tests?
+Clone the repository:
+`git clone https://github.com/minhkhang1795/frontend-nanodegree-feedreader.git`
+
+Open `index.html` to run the tests!
